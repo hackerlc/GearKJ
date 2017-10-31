@@ -1,0 +1,320 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--属性说明主要来源 http://www.cnblogs.com/pilang/archive/2011/04/20/2022932.html-->
+<!--manifest属性说明
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    定义android命名空间，一般为http://schemas.android.com/apk/res/android，
+    这样使得Android中各种标准属性能在文件中使用，提供了大部分元素中的数据。
+
+    package="com.woody.test"
+    指定本应用内java主程序包的包名，它也是一个应用进程的默认名称
+
+    android:sharedUserId="string"
+    表明数据权限，因为默认情况下，Android给每个APK分配一个唯一的UserID，
+    所以是默认禁止不同APK访问共享数据的。若要共享数据，
+    第一可以采用Share Preference方法，第二种就可以采用sharedUserId了，
+    将不同APK的sharedUserId都设为一样，则这些APK之间就可以互相共享数据了。
+    详见：http://wallage.blog.163.com/blog/static/17389624201011010539408/
+
+    android:sharedUserLabel="string resource"
+    一个共享的用户名，它只有在设置了sharedUserId属性的前提下才会有意义
+
+    android:versionCode="integer"
+    是给设备程序识别版本(升级)用的必须是一个interger值代表app更新过多少次
+
+    android:versionName="string"
+    版本名称，这个名称是给用户看的；versionCode、versionName现在一般都是在gradle文件中设置
+
+    android:installLocation=["auto" | "internalOnly" | "preferExternal"]
+    安装参数，是Android2.2中的一个新特性，installLocation有三个值可以选择：internalOnly、auto、preferExternal
+    选择preferExternal,系统会优先考虑将APK安装到SD卡上(当然最终用户可以选择为内部ROM存储上，如果SD存储已满，也会安装到内部存储上)
+    选择auto，系统将会根据存储空间自己去适应
+    选择internalOnly是指必须安装到内部才能运行
+    (注：需要进行后台类监控的APP最好安装在内部，而一些较大的游戏APP最好安装在SD卡上。
+    现默认为安装在内部，如果把APP安装在SD卡上，首先得设置你的level为8，
+    并且要配置android:installLocation这个参数的属性为preferExternal)
+-->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="org.joker.gear">
+    <!--application说明 一个AndroidManifest.xml中必须含有一个Application标签，这个标签声明了每一个应用程序的组件及其属性
+        android:allowClearUserData=["true" | "false"]
+        用户是否能选择自行清除数据，默认为true，程序管理器包含一个选择允许用户清除数据。当为true时，用户可自己清理用户数据
+
+        android:allowTaskReparenting=["true" | "false"]
+        是否允许activity更换从属的任务，比如从短信息任务切换到浏览器任务
+
+        android:backupAgent="string"
+        这也是Android2.2中的一个新特性，设置该APP的备份，属性值应该是一个完整的类名，
+        如com.project.TestCase，此属性并没有默认值，并且类名必须得指定(就是个备份工具，将数据备份到云端的操作)
+
+        android:debuggable=["true" | "false"]
+        当设置为true时，表明该APP在手机上可以被调试。默认为false,在false的情况下调试该APP
+        注：为什么默认false时还是可以调试
+        当Dalvik虚拟机从android应用框架中启动时，系统属性ro.debuggable为1（可以使用命令"adb shell getprop ro.debuggable"来检测该值）
+        Android AVD创建的设备启动模拟器时，该值被置1，系统中所有的程序都是可以调试的。
+        如果系统中的 ro.debuggable 为false，
+        则会判断程序的AndroidManifest.xml中 application标签中的 android:debuggable元素是否为1，如果为1则开启调试支持。
+
+        android:description="string resource" android:description/android:label
+        此两个属性都是为许可提供的，均为字符串资源，当用户去看许可列表(android:label)或者某个许可的详细信息(android:description)时，
+        这些字符串资源就可以显示给用户。label应当尽量简短，之需要告知用户该许可是在保护什么功能就行。
+        而description可以用于具体描述获取该许可的程序可以做哪些事情，实际上让用户可以知道如果他们同意程序获取该权限的话，
+        该程序可以做什么。我们通常用两句话来描述许可，第一句描述该许可，第二句警告用户如果批准该权限会可能有什么不好的事情发生
+
+        android:enabled=["true" | "false"]
+        Android系统是否能够实例化该应用程序的组件，如果为true，每个组件的enabled属性决定那个组件是否可以被 enabled。
+        如果为false，它覆盖组件指定的值；所有组件都是disabled。
+
+        android:hasCode=["true" | "false"]
+        表示此APP是否包含任何的代码，默认为true，若为false，则系统在运行组件时，不会去尝试加载任何的APP代码
+        一个应用程序自身不会含有任何的代码，除非内置组件类，比如Activity类，此类使用了AliasActivity类，当然这是个罕见的现象
+        (在Android2.3可以用标准C来开发应用程序，可在androidManifest.xml中将此属性设置为false,因为这个APP本身已经不含有任何的JAVA代码了)
+
+        android:icon="mipmap resource"
+        声明整个APP的图标
+
+        android:roundIcon="mipmap resource"
+        声明APP圆形图标，android7开始google开始推行圆形图标
+
+        android:killAfterRestore=["true" | "false"]
+        在整个系统恢复期间，应用在其设置被恢复之后是否应该被终止。单独一个包的恢复操作绝不会导致应用被关闭。
+        整个系统恢复的操作往往只会发生一次，就是当手机第一次设置的时候。第三方应用一般不需要使用这个属性
+        这个属性的默认值为true，也就是说，在整个系统恢复期间，这个应用在完成处理它自己的数据之后，它将被终止。
+
+        android:label="string resource"
+        整个应用的一个可被用户读取的标签，也是应用中每个组件的默认标签。
+        见<activity>, <activity-alias>, <service>, <receiver>, 和 <provider>元素独立的标签属性。
+        标签应该是引用一个字符串资源，以便可以像UI中其他字符串一样被国际化。然而，当你开发应用的时候为了方便，它也可以使用原始字符串。
+
+        android:manageSpaceActivity="string"
+        系统可以启动的让用户管理应用在设备上占用内存的activity子类的全限定名。这个activity也应该使用<activity>元素声明。
+
+        android:name="string"
+        为应用程序所实现的Application子类的全名。当应用程序进程开始时，该类在所有应用程序组件之前被实例化。
+        若该类(比方androidMain类)是在声明的package下，则可以直接声明android:name="androidMain",
+        但此类是在package下面的子包的话，就必须声明为全路径或android:name="package名称.子包名成.androidMain"
+
+        android:permission="string"
+        设置许可名，这个属性若在<application>上定义的话，是一个给应用程序的所有组件设置许可的便捷方式，当然它是被各组件设置的许可名所覆盖的
+
+        android:persistent=["true" | "false"]
+        该应用程序是否应该在任何时候都保持运行状态,默认为false。因为应用程序通常不应该设置本标识，
+
+        android:process="string"
+        应用程序运行的进程名，它的默认值为<manifest>元素里设置的包名，当然每个组件都可以通过设置该属性来覆盖默认值。
+        如果你想两个应用程序共用一个进程的话，你可以设置他们的android:process相同，但前提条件是他们共享一个用户ID及被赋予了相同证书的时候
+
+        android:restoreAnyVersion=["true" | "false"]
+        同样也是android2.2的一个新特性，用来表明应用是否准备尝试恢复所有的备份，甚至该备份是比当前设备上更要新的版本，默认是false
+
+        android:taskAffinity="string"
+        拥有相同的affinity的Activity理论上属于相同的Task，应用程序默认的affinity的名字是<manifest>元素中设定的package名
+
+        android:theme="resource or theme"
+        是一个资源的风格，它定义了一个默认的主题风格给所有的activity
+
+        android:allowBackup=[true | false]
+        是否允许应用参与备份与恢复。如果这个属性为false，即使是在整个系统的备份中，应用也不会被备份或恢复，
+        否则所有应用数据都会通过adb保存下来。此属性的默认值是true。
+
+        android:supportsRtl=[true | false]
+        声明你的应用是否愿意支持从右到左的（RTL）布局。这个属性的默认值是false,这个属性是在API 17中引入的
+        如果设置为true，并且targetSdkVersion为17或者17以上，系统会使用很多RTL API，以便你的应用可以显示RTL布局。
+        如果设置为false，或者targetSdkVersion为16或者16以下，RTL API将被忽略，或者不会生效，
+        并且不论与用户Locale选项关联的布局方向如何，你的应用行为是一致的。（你的布局将总是从左到右的）
+        注：此属性在中国一般不会被用到，但是制作其他语言本地化的时候可能会被使用，
+        需要注意开启此功能还需要手机设置同时开启[强制使用从右到左的布局方向]
+
+        android:hardwareAccelerate=[true | false]
+        应用中，硬件加速渲染是否对所有的activity和view都启动 - true则启用，false则关闭。
+        如果minSdkVersion或targetSdkVersion设置为14或14以上，则默认值为true，否则这个值为false
+    -->
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:theme="@style/AppTheme">
+        <!--activity 属性
+          android:allowTaskReparenting=["true" | "false"]
+          是否允许activity更换从属的任务，比如从短信息任务切换到浏览器任务
+
+          android:alwaysRetainTaskState=["true" | "false"]
+          是否保留状态不变， 比如切换回home, 再从新打开，activity处于最后的状态。
+          比如一个浏览器拥有很多状态(当打开了多个TAB的时候)，用户并不希望丢失这些状态时，此时可将此属性设置为true
+
+          android:clearTaskOnLaunch=["true" | "false"]
+          比如 P 是 activity, Q 是被P 触发的 activity, 然后返回Home, 重新启动 P，是否显示 Q
+
+          android:configChanges=["mcc", "mnc", "locale",
+                                 "touchscreen", "keyboard", "keyboardHidden",
+                                 "navigation", "orientation", "screenLayout",
+                                 "fontScale", "uiMode"]
+          当配置list发生修改时， 是否调用 onConfigurationChanged() 方法  比如 "locale|navigation|orientation".
+          主要用来看手机方向改变的. android手机在旋转后,layout会重新布局, 如何做到呢?
+          正常情况下. 如果手机旋转了.当前Activity后杀掉,然后根据方向重新加载这个Activity. 就会从onCreate开始重新加载.
+          如果你设置了 这个选项, 当手机旋转后,当前Activity之后调用onConfigurationChanged() 方法. 而不跑onCreate方法等.
+
+          android:enabled=["true" | "false"]
+
+          android:excludeFromRecents=["true" | "false"]
+          是否可被显示在最近打开的activity列表里，默认是false
+
+          android:exported=["true" | "false"]
+
+          android:finishOnTaskLaunch=["true" | "false"]
+          当用户重新启动这个任务的时候，是否关闭已打开的activity，默认是false
+          如果这个属性和allowTaskReparenting都是true,这个属性就是王牌。Activity的亲和力?将被忽略。该Activity已经被摧毁并非re-parented
+          android:icon="drawable resource"
+          android:label="string resource"
+          android:launchMode=["multiple" | "singleTop" |
+                              "singleTask" | "singleInstance"]
+          在多Activity开发中，有可能是自己应用之间的Activity跳转，或者夹带其他应用的可复用Activity。
+          可能会希望跳转到原来某个Activity实例，而不是产生大量重复的Activity。
+          这需要为Activity配置特定的加载模式，而不是使用默认的加载模式
+          standard：就是intent将发送给新的实例，所以每次跳转都会生成新的activity。
+          singleTop：也是发送新的实例，但不同standard的一点是，在请求的Activity正好位于栈顶时(配置成singleTop的Activity)，不会构造新的实例
+          singleTask：和后面的singleInstance都只创建一个实例，当intent到来，需要创建设置为singleTask的Activity的时候，
+          系统会检查栈里面是否已经有该Activity的实例。如果有直接将intent发送给它。
+          注：这里还要注意activity中onNewIntent的使用，根据实际情况判断是否需要更新intent，
+          默认不会更新，更新需要调用setIntent，同时singleTop也是如此
+          singleInstance：首先说明一下task这个概念，Task可以认为是一个栈，可放入多个Activity。
+          比如启动一个应用，那么Android就创建了一个Task，然后启动这个应用的入口Activity，
+          那在它的界面上调用其他的Activity也只是在这个task里面。
+          那如果在多个task中共享一个Activity的话怎么办呢。举个例来说，如果开启一个导游服务类的应用程序，
+          里面有个Activity是开启GOOGLE地图的，当按下home键退回到主菜单又启动GOOGLE地图的应用时，
+          显示的就是刚才的地图，实际上是同一个Activity，实际上这就引入了singleInstance。
+          singleInstance模式就是将该Activity单独放入一个栈中，这样这个栈中只有这一个Activity，
+          不同应用的intent都由这个Activity接收和展示，这样就做到了共享。当然前提是这些应用都没有被销毁，
+          所以刚才是按下的HOME键，如果按下了返回键，则无效
+
+          android:multiprocess=["true" | "false"]
+          是否允许多进程，默认是false
+
+          android:name="string"
+
+          android:noHistory=["true" | "false"]
+          当用户从Activity上离开并且它在屏幕上不再可见时，Activity是否从Activity stack中清除并结束。默认是false。Activity不会留下历史痕迹
+
+          android:permission="string"
+
+          android:process="string"
+
+          android:screenOrientation=["unspecified" | "user" | "behind" |
+                                     "landscape" | "portrait" |
+                                     "sensor" | "nosensor"]
+          activity显示的模式,默认为unspecified：由系统自动判断显示方向
+          landscape横屏模式，宽度比高度大
+          portrait竖屏模式, 高度比宽度大
+          user模式，用户当前首选的方向
+          behind模式：和该Activity下面的那个Activity的方向一致(在Activity堆栈中的)
+          sensor模式：有物理的感应器来决定。如果用户旋转设备这屏幕会横竖屏切换
+          nosensor模式：忽略物理感应器，这样就不会随着用户旋转设备而更改了
+
+          android:stateNotNeeded=["true" | "false"]
+          activity被销毁或者成功重启时是否保存状态
+
+          android:taskAffinity="string"
+          android:theme="resource or theme"
+          android:windowSoftInputMode=["stateUnspecified",
+                                       "stateUnchanged", "stateHidden",
+                                       "stateAlwaysHidden", "stateVisible",
+                                       "stateAlwaysVisible", "adjustUnspecified",
+                                       "adjustResize", "adjustPan"]
+          activity主窗口与软键盘的交互模式，可以用来避免输入法面板遮挡问题，Android1.5后的一个新特性。
+          这个属性能影响两件事情：
+          【A】当有焦点产生时，软键盘是隐藏还是显示
+          【B】是否减少活动主窗口大小以便腾出空间放软键盘
+          各值的含义：
+          【A】stateUnspecified：软键盘的状态并没有指定，系统将选择一个合适的状态或依赖于主题的设置
+          【B】stateUnchanged：当这个activity出现时，软键盘将一直保持在上一个activity里的状态，无论是隐藏还是显示
+          【C】stateHidden：用户选择activity时，软键盘总是被隐藏
+          【D】stateAlwaysHidden：当该Activity主窗口获取焦点时，软键盘也总是被隐藏的
+          【E】stateVisible：软键盘通常是可见的
+          【F】stateAlwaysVisible：用户选择activity时，软键盘总是显示的状态
+          【G】adjustUnspecified：默认设置，通常由系统自行决定是隐藏还是显示
+          【H】adjustResize：该Activity总是调整屏幕的大小以便留出软键盘的空间
+          【I】adjustPan：当前窗口的内容将自动移动以便当前焦点从不被键盘覆盖和用户能总是看到输入内容的部分
+        -->
+        <activity android:name=".MainActivity">
+            <!--intent-filter 属性
+            android:icon="drawable resource"
+            android:label="string resource"
+            android:priority="integer"
+            有序广播主要是按照声明的优先级别，如A的级别高于B，那么，广播先传给A，再传给B。
+            优先级别就是用设置priority属性来确定，范围是从-1000～1000，数越大优先级别越高)
+
+            Intent filter内会设定的资料包括action,data与category三种。
+            也就是说filter只会与intent里的这三种资料作对比动作
+
+            &<action />
+            action很简单，只有android:name这个属性。标记为&的属性详情都会在最底部注释
+            常见的android:name值为android.intent.action.MAIN，表明此activity是作为应用程序的入口
+
+            &<category />
+            category也只有android:name属性。
+            常见的android:name值为android.intent.category.LAUNCHER(决定应用程序是否显示在程序列表里)
+
+            <data />
+            data属性 Intent 可以通过Intent(String action, Uri uri)跳转 scheme://host:port/path
+            例如：https://gear.joker.com:88/login
+            android:host="string"
+            android:mimeType="string" 指定数据类型 Image、video/mp4...
+            android:path="string"
+            android:pathPattern="string"
+            android:pathPrefix="string" pathPattern、pathPrefix主要是为了格式化path所使用的
+            android:port="string"
+            android:scheme="string"
+            -->
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
+<!-- action name 来源：http://www.cnblogs.com/desire/archive/2012/05/16/2504344.html
+ACTION_MAIN：主动作，和category.LAUNCHER一起用，表示启动activity，在程序列表里有个图标入口的。
+ACTION_VIEW：最长见的访问数据的动作，向用户显示数据，用data来得到最合理的动作发生，比如data为一个联系人的uri，就是查看该联系人信息，是一个网站的uri，就是打开该网页等。
+ACTION_ATTACH_DATA：用来表示某些数据应该附加到某些地方。比如：图像可以附加到联系人。他是由接收到的组件来确定数据附加到哪里的。intent不指定最终目的地。
+ACTION_EDIT：编辑动作，附带data。
+ACTION_PICK：从数据中挑选出一项。返回被挑选出的数据。
+ACTION_CHOOSER：调用activity的选择器，没有用过。
+ACTION_GET_CONTENT：允许用户选择一种特定的数据并返回他。跟ACTION_PICK不同的地方在于只需要写明我们需要的数据类型，而不用用户可以选择的数据的URI。
+ACTION_DIAL：显示拨号界面。
+ACTION_CALL：直接拨打电话。
+ACTION_SEND：发送消息。
+ACTION_SENDTO：选择发送消息。
+ACTION_ANSWER：接电话。
+ACTION_INSET：插入数据。
+ACTION_DELETE：删除数据。
+ACTION_RUN：运行数据。
+ACTIOIN_SYNC：同步数据。
+ACTION_PICK_ACTIVITY：选择activity。
+ACTION_SEARCH：搜索
+ACTION_WEB_SEARCH：web搜索
+ACTION_FACTORY_TEST：工厂测试。
+ACTION_TIME_TICK：系统每整分钟发送的动作。
+ACTION_TIME_CHANGED：系统时间通过设置发生了改变后发出的动作。
+ACTION_TIMEZONE_CHANGED：系统时区改变后发出的动作。
+ACTION_BOOT_COMPLETED：系统启动完成后发出的动作。
+ACTION_PACKAGE_ADDED：新的应用程序安装完成后发出的动作。
+ACTION_PACKAGE_CHANGED：现有的应用程序改变后发出的动作。
+ACTION_PACKAGE_REMOVED：现有的应用程序删除后发出的动作。
+ACTION_PACKAGE_RESTARTED：重新启动一个程序，把现有的属于该程序的都杀掉。
+ACTION_PACGAGE_DATA_CLEARED：清空应用程序的数据后发出的动作。
+ACTION_UID_REMOVED：用户ID被删除后的动作。
+ACTION_BATTERY_CHANGED：一个包含充电状态、水平等的电池信息，必须用registerReceiver来注册。
+ACTION_POWER_CONNECTED：连上电源。
+ACTION_POWER_DISCONNECTED：断开电源
+ACTION_SHUTDOWN：将要关机。
+-->
+<!--Category name 来源：http://www.cnblogs.com/yaozhongxiao/archive/2013/10/12/3365185.html
+CATEGORY_DEFAULT：Android系统中默认的执行方式，按照普通Activity的执行方式执行。　
+CATEGORY_HOME：设置该组件为Home Activity。
+CATEGORY_PREFERENCE：设置该组件为Preference。　
+CATEGORY_LAUNCHER：设置该组件为在当前应用程序启动器中优先级最高的Activity，通常为入口ACTION_MAIN配合使用。　
+CATEGORY_BROWSABLE：设置该组件可以使用浏览器启动。　
+CATEGORY_GADGET：设置该组件可以内嵌到另外的Activity中。
+-->
