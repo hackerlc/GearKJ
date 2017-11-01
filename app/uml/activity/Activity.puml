@@ -1,0 +1,36 @@
+@startuml
+Context <|-- ContextWrapper
+
+class Context {
+    +AssetManager getAssets()
+    +Resources getResources()
+    +PackageManager getPackageManager()
+    +ContentResolver getContentResolver()
+    Context : +Looper getMainLooper()
+    +Context getApplicationContext()
+    +registerComponentCallbacks(ComponentCallbacks callback)
+    +unregisterComponentCallbacks(ComponentCallbacks callback)
+    +CharSequence getText(@StringRes int resId)
+    +String getString(@StringRes int resId)
+    +String getString(@StringRes int resId, Object... formatArgs)
+    +int getColor(@ColorRes int id)
+    +Drawable getDrawable(@DrawableRes int id)
+    +ColorStateList getColorStateList(@ColorRes int id)
+    +ClassLoader getClassLoader()
+    +String getPackageName()
+    +String getPackageResourcePath()
+    +String getPackageCodePath()
+    +Drawable getWallpaper()
+    +void startActivity(@RequiresPermission Intent intent)
+    +void startActivityForResult(@NonNull String who, Intent intent, int requestCode, @Nullable Bundle options)
+    +void sendBroadcast(@RequiresPermission Intent intent)
+    +Intent registerReceiver(@Nullable BroadcastReceiver receiver,IntentFilter filter)
+    +void unregisterReceiver(BroadcastReceiver receiver)
+    +ComponentName startService(Intent service)
+    +boolean stopService(Intent service)
+    +boolean bindService(@RequiresPermission Intent service,@NonNull ServiceConnection conn, @BindServiceFlags int flags)
+    +void unbindService(@NonNull ServiceConnection conn)
+    +Context createPackageContext(String packageName,@CreatePackageOptions int flags)
+    +int getUserId()
+}
+@enduml
