@@ -48,7 +48,7 @@ android {
     signingConfigs {
         release {
             storeFile file("./gearkotlin.jks")
-            storePassword 'q110q110'
+            storePassword 'q110110'
             keyAlias("jokergear")
             keyPassword '110q110q'
         }
