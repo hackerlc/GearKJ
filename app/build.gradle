@@ -70,9 +70,6 @@ android {
         debug {
 //            signingConfig signingConfigs.debug
         }
-        debug2 {
-//            signingConfig signingConfigs.debug
-        }
     }
     externalNativeBuild {
         cmake {
@@ -89,10 +86,15 @@ implementation：对于使用了该命令编译的依赖，对该项目有依赖
 也就是将该依赖隐藏在内部，而不对外部公开，如果你的appModel中有使用依赖那么需要使用api指令对全局开放
  */
 dependencies {
+    implementation project(':gearlibrary')
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
     implementation 'com.android.support:appcompat-v7:26.1.0'
     implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+    //rx lifecycle
+    implementation 'com.trello.rxlifecycle2:rxlifecycle:2.2.0'
+    implementation 'com.trello.rxlifecycle2:rxlifecycle-android:2.2.0'
+    implementation 'com.trello.rxlifecycle2:rxlifecycle-components:2.2.0'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'

@@ -1,0 +1,44 @@
+@startuml
+
+Activity <|-- SupportActivity
+
+SupportActivity <|-- BaseFragmentActivityApi14
+
+BaseFragmentActivityApi14 <|- BaseFragmentActivityApi16
+
+BaseFragmentActivityApi16 <|-- FragmentActivity
+
+ActivityCompat.OnRequestPermissionsResultCallback <... FragmentActivity
+ActivityCompat.RequestPermissionsRequestCodeValidator <... FragmentActivity
+
+FragmentActivity <|---- AppCompatActivity
+
+AppCompatCallback <.. AppCompatActivity
+TaskStackBuilder.SupportParentable <.. AppCompatActivity
+ActionBarDrawerToggle.DelegateProvider <.. AppCompatActivity
+
+class AppCompatActivity {
+    -AppCompatDelegate mDelegate
+    -Resources mResources
+}
+
+interface ActivityCompat.OnRequestPermissionsResultCallback
+interface ActivityCompat.RequestPermissionsRequestCodeValidator
+interface AppCompatCallback
+interface TaskStackBuilder.SupportParentable
+interface ActionBarDrawerToggle.DelegateProvider
+class BaseFragmentActivityApi14 {
+    abstract View dispatchFragmentsOnCreateView(View parent, String name,
+                Context context, AttributeSet attrs)
+static void checkForValidRequestCode(int requestCode)
+}
+class SupportActivity {
+    -SimpleArrayMap<Class<? extends ExtraData>, ExtraData> mExtraDataMap
+    -LifecycleRegistry mLifecycleRegistry
+    +Lifecycle getLifecycle()
+    +void putExtraData(ExtraData extraData)
+    +<T extends ExtraData> T getExtraData(Class<T> extraDataClass)
+
+    +static class ExtraData{}
+}
+@enduml

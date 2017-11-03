@@ -1,12 +1,108 @@
 @startuml
 Context <|-- ContextWrapper
 
+ContextWrapper <|-- ContextThemeWrapper
+
+ContextThemeWrapper <|---- Activity
+Activity ...> Bundle
+Activity ---> Intent
+LayoutInflater.Factory <|-- LayoutInflater.Factory2
+LayoutInflater.Factory2 <|..... Activity
+Window.Callback <|...... Activity
+KeyEvent.Callback <|.... Activity
+OnCreateContextMenuListener <|... Activity
+ComponentCallbacks2 <|... Activity
+Window.OnWindowDismissedCallback <|..... Activity
+WindowControllerCallback <|... Activity
+AutofillManager.AutofillClient <|..... Activity
+
+class Activity {
+    +int RESULT_CANCELED
+    +int RESULT_OK
+    +int RESULT_FIRST_USER
+    -Instrumentation mInstrumentation
+    -Application mApplication
+    Intent mIntent
+    -ComponentName mComponent
+    ActivityInfo mActivityInfo
+    ActivityThread mMainThread
+    Activity mParent
+    Configuration mCurrentConfig
+    -SearchManager mSearchManager
+    -MenuInflater mMenuInflater
+    -Window mWindow
+    -WindowManager mWindowManager
+    ActionBar mActionBar
+    -Thread mUiThread
+    +Intent getIntent()
+    +void setIntent(Intent newIntent)
+    +final Application getApplication()
+    {field}final Handler mHandler = new Handler()
+    {field}final FragmentController mFragments = FragmentController.createController(new HostCallbacks())
+    #void onCreate(@Nullable Bundle savedInstanceState)
+    #void onStart()
+    #void onRestart()
+    #void onResume()
+    #void onNewIntent(Intent intent)
+    #void onSaveInstanceState(Bundle outState)
+    #void onPause()
+    #void onStop()
+    #void onDestroy()
+    +FragmentManager getFragmentManager()
+    +<T extends View> T findViewById(@IdRes int id)
+    +void setContentView(@LayoutRes int layoutResID)
+    +void setContentView(View view)
+    +boolean onKeyDown(int keyCode, KeyEvent event)
+    +boolean onTouchEvent(MotionEvent event)
+    +boolean dispatchTouchEvent(MotionEvent ev)
+    +LayoutInflater getLayoutInflater()
+    +void startActivityForResult(@RequiresPermission Intent intent, int requestCode,@Nullable Bundle options)
+    +void startActivity(Intent intent, @Nullable Bundle options)
+    +void finish(int finishTask)
+    +void finishActivity(int requestCode)
+    #void onActivityResult(int requestCode, int resultCode, Intent data)
+}
+class Bundle {
+
+}
+class Intent {
+
+}
+interface LayoutInflater.Factory2 {
+    +View onCreateView(View parent, String name, Context context, AttributeSet attrs)
+}
+interface LayoutInflater.Factory {
+    +View onCreateView(String name, Context context, AttributeSet attrs)
+}
+interface Window.Callback
+interface KeyEvent.Callback
+interface OnCreateContextMenuListener
+interface ComponentCallbacks2
+interface Window.OnWindowDismissedCallback
+interface WindowControllerCallback
+interface AutofillManager.AutofillClient
+
+class ContextThemeWrapper {
+    -int mThemeResource
+    -Resources.Theme mTheme
+    -LayoutInflater mInflater
+    -Configuration mOverrideConfiguration
+    -Resources mResources
+    +ContextThemeWrapper(Context base, @StyleRes int themeResId)
+    +ContextThemeWrapper(Context base, Resources.Theme theme)
+    +applyOverrideConfiguration(Configuration overrideConfiguration)
+}
+
+class ContextWrapper {
+    Context mBase
+    #void attachBaseContext(Context base)
+}
 class Context {
     +AssetManager getAssets()
     +Resources getResources()
     +PackageManager getPackageManager()
     +ContentResolver getContentResolver()
-    Context : +Looper getMainLooper()
+    +Looper getMainLooper()
     +Context getApplicationContext()
     +registerComponentCallbacks(ComponentCallbacks callback)
     +unregisterComponentCallbacks(ComponentCallbacks callback)
