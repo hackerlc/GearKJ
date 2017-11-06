@@ -1,0 +1,15 @@
+@startuml
+
+ContextWrapper <|-- Application
+
+ComponentCallbacks2 <|.. Application
+
+class ContextWrapper {
+
+}
+interface ComponentCallbacks2
+class Application {
+    +void onCreate()
+}
+
+@enduml

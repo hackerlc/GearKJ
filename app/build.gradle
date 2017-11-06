@@ -78,6 +78,10 @@ android {
     }
     productFlavors {
     }
+    compileOptions {
+        targetCompatibility 1.8
+        sourceCompatibility 1.8
+    }
 }
 /*
 这里注意compile被标记过时，通过两个新指令代替

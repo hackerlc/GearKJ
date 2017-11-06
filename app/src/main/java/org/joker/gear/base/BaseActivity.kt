@@ -13,7 +13,7 @@ import gear.yc.com.gearlibrary.manager.ActivityManager
  * Email:lc@shandaichaoren.com or 812405389@qq.com
  * @version 2017/11/1
  */
-abstract class BaseActivity : AppActivity() {
+open abstract class BaseActivity : AppActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         initUI()
