@@ -1,0 +1,20 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="app_bar_height">180dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+
+    <!--font size-->
+    <!--welcome layout-->
+    <dimen name="welcome_clock_hh_ss_dd">12sp</dimen>
+    <dimen name="welcome_clock_year">12sp</dimen>
+    <dimen name="welcome_title">40sp</dimen>
+
+    <!--main-->
+    <dimen name="main_title_height">46dp</dimen>
+
+    <!--font size-->
+    <!--main-->
+    <dimen name="main_title">22sp</dimen>
+</resources>

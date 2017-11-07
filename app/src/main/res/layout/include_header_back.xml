@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/MainTitle"
+    android:translationZ="2dp">
+    <TextView
+        android:id="@+id/tvTitle"
+        style="@style/MainTitle.Text"
+        android:text="@{title}"
+        tools:text="Title"/>
+    <ImageView
+        android:id="@+id/ivBack"
+        style="@style/MainTitle.Back"
+        android:onClick="@{onClick}"/>
+    <ImageView
+        android:id="@+id/ivLeft"
+        style="@style/MainTitle.Left"/>
+</RelativeLayout>
