@@ -13,10 +13,12 @@ import gear.yc.com.gearlibrary.manager.ActivityManager
  * Email:lc@shandaichaoren.com or 812405389@qq.com
  * @version 2017/11/1
  */
-open abstract class BaseActivity : AppActivity() {
+abstract class BaseActivity : AppActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         initUI()
+        attachPresenter()
         initData()
     }
 
@@ -25,13 +27,19 @@ open abstract class BaseActivity : AppActivity() {
      * 并且这个方法会在initData()之前执行
      * @see initData
      */
-    abstract fun initUI()
+    abstract protected fun initUI()
 
     /**
-     * 初始化数据的代码统一存放位置，这个方法会在initUI()之后执行
+     * 初始化Presenter
      * @see initUI
      */
-    abstract fun initData()
+    abstract protected fun attachPresenter()
+
+    /**
+     * 初始化数据的代码统一存放位置，attachPresenter()之后执行
+     * @see attachPresenter
+     */
+    abstract protected fun initData()
 
     /**
      * 退出应用可以调用此方法， ActivityManager 会储存所有的activity类并且关闭它们

@@ -1,9 +1,10 @@
-package org.joker.gear
+package org.joker.gear.ui
 
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import kotlinx.android.synthetic.main.activity_main.*
+import org.joker.gear.R
 
 class MainActivity : AppCompatActivity() {
 

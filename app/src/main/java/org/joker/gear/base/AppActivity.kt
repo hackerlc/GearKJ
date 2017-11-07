@@ -10,7 +10,7 @@ import gear.yc.com.gearlibrary.manager.ActivityManager
  * Email:lc@shandaichaoren.com or 812405389@qq.com
  * @version 2017/11/3
  */
-open class AppActivity : RxLifecycle() {
+open class AppActivity : RxLifecycleActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         ActivityManager.getInstance().activities.add(this)

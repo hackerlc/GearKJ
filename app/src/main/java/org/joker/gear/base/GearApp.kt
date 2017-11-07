@@ -17,6 +17,5 @@ class GearApp : Application(){
     }
 
     private fun init(){
-        NetManager
     }
 }

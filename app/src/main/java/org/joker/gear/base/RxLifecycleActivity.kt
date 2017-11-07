@@ -12,12 +12,12 @@ import io.reactivex.subjects.BehaviorSubject
 
 /**
  * 如果你使用了RxJava，那么在管理RxJava的生命周期时可以采用这里的方式
- * 也可以直接查看https://github.com/trello/RxLifecycle
+ * 也可以直接查看https://github.com/trello/RxLifecycleActivity
  * @author joker
  * Email:lc@shandaichaoren.com or 812405389@qq.com
  * @version 2017/11/3
  */
-open class RxLifecycle : AppCompatActivity(), LifecycleProvider<ActivityEvent> {
+open class RxLifecycleActivity : AppCompatActivity(), LifecycleProvider<ActivityEvent> {
     private val lifecycleSubject : BehaviorSubject<ActivityEvent> = BehaviorSubject.create()
 
     override fun <T : Any?> bindUntilEvent(event: ActivityEvent): LifecycleTransformer<T> {
@@ -30,6 +30,10 @@ open class RxLifecycle : AppCompatActivity(), LifecycleProvider<ActivityEvent> {
 
     override fun <T : Any?> bindToLifecycle(): LifecycleTransformer<T> {
         return RxLifecycleAndroid.bindActivity<T>(lifecycleSubject)
+    }
+
+    fun <T : Any?> bindToLifecycleDestroy() : LifecycleTransformer<T> {
+        return  RxLifecycle.bindUntilEvent(lifecycleSubject, ActivityEvent.DESTROY)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
