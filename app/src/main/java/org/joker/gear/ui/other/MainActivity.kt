@@ -1,4 +1,4 @@
-package org.joker.gear.ui
+package org.joker.gear.ui.other
 
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity

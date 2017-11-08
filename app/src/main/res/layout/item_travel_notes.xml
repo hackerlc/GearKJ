@@ -2,7 +2,7 @@
 <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/cv_data"
+    android:id="@+id/cvData"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginLeft="8dp"
@@ -19,7 +19,7 @@
         android:layout_height="match_parent">
 
         <ImageView
-            android:id="@+id/sdv_books_img"
+            android:id="@+id/sdvBooksImg"
             android:layout_width="match_parent"
             android:layout_height="220dp"
             android:scaleType="centerCrop" />
@@ -27,7 +27,7 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignBottom="@id/sdv_books_img"
+            android:layout_alignBottom="@id/sdvBooksImg"
             android:background="@drawable/bg_books_item_text_bg"
             android:padding="6dp">
 
@@ -37,7 +37,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:maxLines="1"
-                android:text="@{book.title}"
+                android:text=""
                 android:textColor="@color/white"
                 android:textSize="18sp"
                 tools:text="标题文字" />

@@ -1,6 +1,5 @@
-package org.joker.gear.base
+package org.joker.gear.base.activity
 
-import android.arch.lifecycle.Lifecycle
 import org.joker.gear.base.contract.BaseContract
 
 /**
@@ -9,6 +8,6 @@ import org.joker.gear.base.contract.BaseContract
  * Email:lc@shandaichaoren.com or 812405389@qq.com
  * @version 2017/11/7
  */
-abstract class BasePActivity<T : BaseContract.BasePresenter<*>> : BaseActivity(){
+abstract class BasePActivity<T : BaseContract.BasePresenter> : BaseActivity(){
     protected lateinit var mPresenter : T
 }

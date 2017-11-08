@@ -3,6 +3,7 @@ package org.joker.gear.net
 import gear.yc.com.gearlibrary.network.api.GearHttpServiceManager
 import gear.yc.com.gearlibrary.network.http.OkHttpManager
 import okhttp3.OkHttpClient
+import org.joker.gear.base.config.APIConfig
 import retrofit2.Retrofit
 
 /**
@@ -20,6 +21,6 @@ class NetManager {
                 .setHeader("apikey","beae89ef686795322d5a3c48579875d5")
                 .build()
                 .client
-        var mRetrofit : Retrofit = GearHttpServiceManager.build("",mClient)
+        var mRetrofit : Retrofit = GearHttpServiceManager.build(APIConfig.BASE_URL,mClient)
     }
 }

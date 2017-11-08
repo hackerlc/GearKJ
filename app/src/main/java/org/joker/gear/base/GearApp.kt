@@ -17,5 +17,6 @@ class GearApp : Application(){
     }
 
     private fun init(){
+
     }
 }

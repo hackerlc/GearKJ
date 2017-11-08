@@ -2,6 +2,7 @@
   <dictionary name="A">
     <words>
       <w>buildscript</w>
+      <w>lateinit</w>
       <w>reparenting</w>
     </words>
   </dictionary>

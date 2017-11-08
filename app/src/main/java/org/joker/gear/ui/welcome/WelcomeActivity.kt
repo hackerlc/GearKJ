@@ -7,7 +7,7 @@ import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import kotlinx.android.synthetic.main.activity_welcome.*
 import org.joker.gear.R
-import org.joker.gear.base.BaseActivity
+import org.joker.gear.base.activity.BaseActivity
 import org.joker.gear.ui.travelnote.list.TravelNotesActivity
 import java.util.*
 import java.util.concurrent.TimeUnit
@@ -21,7 +21,7 @@ import java.util.concurrent.TimeUnit
  */
 class WelcomeActivity : BaseActivity(){
 
-    var videos : MutableList<String> = ArrayList()
+    private var videos : MutableList<String> = ArrayList()
     private val RANDOM_BOUND = 2
     private val TIME = 3000L
 

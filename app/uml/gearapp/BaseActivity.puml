@@ -1,0 +1,17 @@
+@startuml
+
+AppCompatActivity <|- RxLifecycleActivity
+
+RxLifecycleActivity <|-- BaseActivity
+
+BaseActivity <|-- BasePActivity
+
+abstract class BasePActivity<T : BaseContract.BasePresenter>{
+    #lateinit var mPresenter : T
+}
+abstract class BaseActivity{
+    #abstract initUI()
+    #abstract attachPresenter()
+    #abstract initData()
+}
+@enduml

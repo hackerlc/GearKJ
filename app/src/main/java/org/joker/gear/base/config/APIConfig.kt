@@ -8,8 +8,8 @@ package org.joker.gear.base.config
  */
 class APIConfig {
     companion object {
-        val BASE_URL = "http://120.27.118.74/"
-        val BASE_URL_BREADTRIP="http://api.breadtrip.com/v2/search/"
-        val BASE_URL_BREADTRIP_DETIAL="http://web.breadtrip.com/trips/"
+        const val BASE_URL = "http://120.27.118.74/"
+        const val BASE_URL_BREADTRIP="http://api.breadtrip.com/v2/search/"
+        const val BASE_URL_BREADTRIP_DETIAL="http://web.breadtrip.com/trips/"
     }
 }

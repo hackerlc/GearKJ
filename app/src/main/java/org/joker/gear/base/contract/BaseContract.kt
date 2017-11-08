@@ -1,6 +1,7 @@
 package org.joker.gear.base.contract
 
 import com.trello.rxlifecycle2.LifecycleTransformer
+import org.joker.gear.R
 
 /**
  * MVP Base Contract
@@ -12,11 +13,23 @@ interface BaseContract {
     /**
      * MVP Base View
      */
-    interface BaseView<in T> {
+    interface BaseView {
         /**
          * 网络数据处理成功后更新界面显示
          */
-        fun updateUI(t : T)
+        fun updateUI()
+
+        /**
+         * 显示提示信息
+         * @param str 信息内容
+         */
+        fun showToast(str : String)
+
+        /**
+         * 显示加载框
+         * @param show true 显示 | false 不显示
+         */
+        fun onDialog(show : Boolean)
 
         /**
          * 主要为Presenter提供Rx生命周期管理
@@ -30,8 +43,7 @@ interface BaseContract {
     /**
      * MVP Base Presenter
      */
-    interface BasePresenter<V : BaseView<*>> {
-        var mView : V
+    interface BasePresenter {
         /**
          * 加载数据
          */

@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * GearApplication
@@ -16,12 +17,12 @@ import java.util.ArrayList;
  */
 public class GearRecyclerViewAdapter<T,R extends RecyclerView.ViewHolder> extends RecyclerView.Adapter<R>
         implements View.OnClickListener{
-    protected ArrayList<T> mData;
+    protected List<T> mData;
     protected Context mContext;
     protected OnRecyclerViewItemClickListener<T> mListener;
     protected View view;
 
-    public GearRecyclerViewAdapter(Context mContext, ArrayList<T> mData){
+    public GearRecyclerViewAdapter(Context mContext, List<T> mData){
         this.mContext=mContext;
         this.mData=mData;
     }
@@ -43,7 +44,7 @@ public class GearRecyclerViewAdapter<T,R extends RecyclerView.ViewHolder> extend
         return mData.size();
     }
 
-    public ArrayList<T> getData() {
+    public List<T> getData() {
         return mData;
     }
 

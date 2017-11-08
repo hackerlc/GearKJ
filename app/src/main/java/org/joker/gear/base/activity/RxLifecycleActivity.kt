@@ -1,4 +1,4 @@
-package org.joker.gear.base
+package org.joker.gear.base.activity
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
@@ -11,7 +11,7 @@ import io.reactivex.Observable
 import io.reactivex.subjects.BehaviorSubject
 
 /**
- * 如果你使用了RxJava，那么在管理RxJava的生命周期时可以采用这里的方式
+ * 如果你使用了RxJava+Retrofit，那么在管理RxJava的生命周期时可以采用这种方式
  * 也可以直接查看https://github.com/trello/RxLifecycleActivity
  * @author joker
  * Email:lc@shandaichaoren.com or 812405389@qq.com

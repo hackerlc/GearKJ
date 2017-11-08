@@ -1,4 +1,4 @@
-package org.joker.gear.base
+package org.joker.gear.base.activity
 
 import android.os.Build
 import android.os.Bundle
@@ -13,10 +13,11 @@ import gear.yc.com.gearlibrary.manager.ActivityManager
  * Email:lc@shandaichaoren.com or 812405389@qq.com
  * @version 2017/11/1
  */
-abstract class BaseActivity : AppActivity() {
+abstract class BaseActivity : RxLifecycleActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        ActivityManager.getInstance().activities.add(this)
         initUI()
         attachPresenter()
         initData()

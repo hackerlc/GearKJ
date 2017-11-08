@@ -35,6 +35,11 @@
 -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="org.joker.gear">
+    <!-- 允许应用程序联网，以便向我们的服务器端发送数据 -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!-- 检测网络状态 -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <!--application说明 一个AndroidManifest.xml中必须含有一个Application标签，这个标签声明了每一个应用程序的组件及其属性
         android:allowClearUserData=["true" | "false"]
         用户是否能选择自行清除数据，默认为true，程序管理器包含一个选择允许用户清除数据。当为true时，用户可自己清理用户数据
@@ -133,7 +138,8 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        android:name=".base.GearApp">
         <!--activity 属性
           android:allowTaskReparenting=["true" | "false"]
           是否允许activity更换从属的任务，比如从短信息任务切换到浏览器任务
@@ -235,7 +241,7 @@
           【H】adjustResize：该Activity总是调整屏幕的大小以便留出软键盘的空间
           【I】adjustPan：当前窗口的内容将自动移动以便当前焦点从不被键盘覆盖和用户能总是看到输入内容的部分
         -->
-        <activity android:name=".ui.MainActivity">
+        <activity android:name=".ui.other.MainActivity">
             <!--intent-filter 属性
             android:icon="drawable resource"
             android:label="string resource"
