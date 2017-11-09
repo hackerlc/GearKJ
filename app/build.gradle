@@ -68,8 +68,14 @@ android {
             //混淆设置
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
 //            signingConfig signingConfigs.release
+            buildConfigField("String", "BASE_URL", "\"http://120.27.118.74/\"")
+            buildConfigField("String", "BASE_URL_BREADTRIP", "\"http://api.breadtrip.com/v2/search/\"")
+            buildConfigField("String", "BASE_URL_BREADTRIP_DETIAL", "\"http://web.breadtrip.com/trips/\"")
         }
         debug {
+            buildConfigField("String", "BASE_URL", "\"http://120.27.118.74/\"")
+            buildConfigField("String", "BASE_URL_BREADTRIP", "\"http://api.breadtrip.com/v2/search/\"")
+            buildConfigField("String", "BASE_URL_BREADTRIP_DETIAL", "\"http://web.breadtrip.com/trips/\"")
 //            signingConfig signingConfigs.debug
         }
     }

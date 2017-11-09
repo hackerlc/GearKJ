@@ -1,5 +1,7 @@
 package org.joker.gear.base.config
 
+import org.joker.gear.BuildConfig
+
 /**
  * 类说明
  * @author joker
@@ -8,8 +10,9 @@ package org.joker.gear.base.config
  */
 class APIConfig {
     companion object {
-        const val BASE_URL = "http://120.27.118.74/"
-        const val BASE_URL_BREADTRIP="http://api.breadtrip.com/v2/search/"
-        const val BASE_URL_BREADTRIP_DETIAL="http://web.breadtrip.com/trips/"
+        const val BASE_URL = BuildConfig.BASE_URL
+        const val BASE_URL_BREADTRIP=BuildConfig.BASE_URL_BREADTRIP
+        const val BASE_URL_BREADTRIP_DETIAL=BuildConfig.BASE_URL_BREADTRIP_DETIAL
+
     }
 }

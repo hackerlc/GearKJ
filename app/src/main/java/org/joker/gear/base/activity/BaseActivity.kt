@@ -6,7 +6,7 @@ import android.view.KeyEvent
 import gear.yc.com.gearlibrary.manager.ActivityManager
 
 /**
- * app内基类
+ * app activity基类
  * app内所有类原则上都要继承这个类，这个类中集合了共有的方法、参数、初始化
  * 但要注意初始化的东西不要太多以免影响activity加载
  * @author joker
