@@ -1,9 +1,9 @@
-package org.joker.gear.base.config
+package org.joker.gear.net.config
 
 import org.joker.gear.BuildConfig
 
 /**
- * 类说明
+ * 提供API接口地址，以及其他接口配置参数、方法
  * @author joker
  * Email:lc@shandaichaoren.com or 812405389@qq.com
  * @version 2017/11/7

@@ -1,14 +1,14 @@
 package org.joker.gear.net.api
 
 import io.reactivex.Flowable
-import org.joker.gear.base.config.APIConfig
+import org.joker.gear.net.config.APIConfig
 import org.joker.gear.pojo.ResponseJson
 import org.joker.gear.pojo.TravelNoteBook
 import retrofit2.http.GET
 import retrofit2.http.Query
 
 /**
- * 类说明
+ * 提供接口调用方法
  * @author joker
  * Email:lc@shandaichaoren.com or 812405389@qq.com
  * @version 2017/11/8

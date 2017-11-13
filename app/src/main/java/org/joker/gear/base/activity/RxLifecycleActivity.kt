@@ -17,7 +17,7 @@ import io.reactivex.subjects.BehaviorSubject
  * Email:lc@shandaichaoren.com or 812405389@qq.com
  * @version 2017/11/3
  */
-open class RxLifecycleActivity : AppCompatActivity(), LifecycleProvider<ActivityEvent> {
+abstract class RxLifecycleActivity : AppCompatActivity(), LifecycleProvider<ActivityEvent> {
     private val lifecycleSubject : BehaviorSubject<ActivityEvent> = BehaviorSubject.create()
 
     override fun <T : Any?> bindUntilEvent(event: ActivityEvent): LifecycleTransformer<T> {

@@ -1,0 +1,31 @@
+@startuml
+BaseContract.BasePresenter <|.. AbstractPresenter
+AbstractPresenter <|--- APresenter
+
+BaseContract.BaseView <|-- AView
+
+AView <|.. AActivity
+
+APresenter o-  AActivity
+AActivity *- APresenter
+
+abstract class AbstractPresenter<R : Any,V : BaseContract.BaseView> {
+    #var mView = v
+    #lateinit var mData : R
+    #protected open fun processData(d : R?) {}
+    #protected open fun errorData(error : String) {}
+}
+interface BaseContract.BaseView {
+    +updateUI()
+    +showToast(str : String)
+    +onDialog(show : Boolean)
+    +<R : Any?> getLifecycle2() : LifecycleTransformer<R>
+    +<R : Any?> getLifecycleDestroy() : LifecycleTransformer<R>
+}
+
+interface BaseContract.BasePresenter {
+    +fetch()
+    +close()
+}
+interface AView
+@enduml

@@ -8,8 +8,8 @@ package org.joker.gear.base.contract
  */
 abstract class AbstractPresenter<R : Any,V : BaseContract.BaseView>(v : V) :
         BaseContract.BasePresenter{
-    var mView = v
-    lateinit var mData : R
+    protected var mView = v
+    lateinit var mData : R protected set
     /**
      * 处理数据
      */
