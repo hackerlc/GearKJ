@@ -9,6 +9,7 @@ import kotlinx.android.synthetic.main.activity_travel_notes.*
 import kotlinx.android.synthetic.main.include_header_back.view.*
 import org.joker.gear.R
 import org.joker.gear.base.activity.BasePActivity
+import org.joker.gear.entity.TravelNoteBook
 
 /**
  * 游记列表
@@ -16,8 +17,9 @@ import org.joker.gear.base.activity.BasePActivity
  * Email:lc@shandaichaoren.com or 812405389@qq.com
  * @version 2017/11/7
  */
-class TravelNotesActivity : BasePActivity<TravelNotesPresenter>(),
-        TravelNotesView{
+class TravelNotesActivity :
+        BasePActivity<ContractTravelNotes.Presenter<MutableList<TravelNoteBook.Books>>>(),
+        ContractTravelNotes.View {
     lateinit var adapter : TravelNotesAdapter
 
     @SuppressLint("ResourceAsColor")
@@ -36,13 +38,18 @@ class TravelNotesActivity : BasePActivity<TravelNotesPresenter>(),
     }
 
     override fun initData() {
-        adapter = TravelNotesAdapter(this, mPresenter.mData)
+        adapter = TravelNotesAdapter(this, mPresenter.getData())
         rvBooks.adapter = adapter
         mPresenter.fetch()
     }
 
     override fun updateUI() {
         adapter.notifyDataSetChanged()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        mPresenter.close()
     }
 
     override fun showToast(str: String) {

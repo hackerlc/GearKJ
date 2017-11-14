@@ -1,4 +1,4 @@
-package org.joker.gear.pojo
+package org.joker.gear.entity
 
 import com.google.gson.annotations.SerializedName
 

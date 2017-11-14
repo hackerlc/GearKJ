@@ -1,19 +1,29 @@
 @startuml
-BaseContract.BasePresenter <|.. AbstractPresenter
-AbstractPresenter <|--- APresenter
+AbstractPresenter <|-- PresenterDataWrapper
+AbstractPresenter <|-- PresenterAWrapper
+AbstractPresenter <|-- PresenterBWrapper
+PresenterDataWrapper <|--- PresenterA
 
-BaseContract.BaseView <|-- AView
+BaseContract.BasePresenter <|---- ContractA.Presenter
+BaseContract.BaseView <|---- ContractA.View
 
-AView <|.. AActivity
+ContractA.View <|.. ActivityA
+ContractA.Presenter <|.. PresenterA
 
-APresenter o-  AActivity
-AActivity *- APresenter
+BasePActivity <|--- ActivityA
 
-abstract class AbstractPresenter<R : Any,V : BaseContract.BaseView> {
-    #var mView = v
-    #lateinit var mData : R
-    #protected open fun processData(d : R?) {}
-    #protected open fun errorData(error : String) {}
+PresenterA o-  ActivityA
+ActivityA *- PresenterA
+
+abstract class AbstractPresenter<V : BaseContract.BaseView> {
+    +var mView = v
+    # set
+}
+class PresenterDataWrapper<R : Any,V : BaseContract.BaseView>{
+    +lateinit var mData : R
+    #set
+    #open fun processData(d : R?) {}
+    #open fun errorData(error : String) {}
 }
 interface BaseContract.BaseView {
     +updateUI()
@@ -23,9 +33,16 @@ interface BaseContract.BaseView {
     +<R : Any?> getLifecycleDestroy() : LifecycleTransformer<R>
 }
 
-interface BaseContract.BasePresenter {
+interface BaseContract.BasePresenter<out T> {
     +fetch()
+    +refreshData()
+    +getData() : T
     +close()
 }
-interface AView
+interface ContractA.Presenter<out T>
+interface ContractA.View
+
+abstract class BasePActivity<T : BaseContract.BasePresenter<*>>{
+    #lateinit var mPresenter : T
+}
 @enduml

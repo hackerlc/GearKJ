@@ -1,6 +1,6 @@
 @startuml
 
-AppCompatActivity <|- RxLifecycleActivity
+AppCompatActivity <|-- RxLifecycleActivity
 LifecycleProvider <|.. RxLifecycleActivity
 RxLifecycleActivity <|-- BaseActivity
 
@@ -10,8 +10,8 @@ abstract class RxLifecycleActivity {
     -val lifecycleSubject : BehaviorSubject<ActivityEvent> = BehaviorSubject.create()
 }
 
-abstract class BasePActivity<T : BaseContract.BasePresenter>{
-    #lateinit var mPresenter : T
+abstract class BasePActivity<T : BaseContract.BasePresenter<*>>{
+    protected lateinit var mPresenter : T
 }
 abstract class BaseActivity{
     #abstract initUI()

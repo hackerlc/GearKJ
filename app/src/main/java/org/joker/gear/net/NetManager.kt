@@ -3,7 +3,7 @@ package org.joker.gear.net
 import gear.yc.com.gearlibrary.network.api.GearHttpServiceManager
 import gear.yc.com.gearlibrary.network.http.OkHttpManager
 import okhttp3.OkHttpClient
-import org.joker.gear.net.config.APIConfig
+import org.joker.gear.config.APIConfig
 import retrofit2.Retrofit
 
 /**

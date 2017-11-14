@@ -1,9 +1,9 @@
 package org.joker.gear.net.api
 
 import io.reactivex.Flowable
-import org.joker.gear.net.config.APIConfig
-import org.joker.gear.pojo.ResponseJson
-import org.joker.gear.pojo.TravelNoteBook
+import org.joker.gear.config.APIConfig
+import org.joker.gear.entity.ResponseJson
+import org.joker.gear.entity.TravelNoteBook
 import retrofit2.http.GET
 import retrofit2.http.Query
 

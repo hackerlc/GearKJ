@@ -8,7 +8,7 @@ import gear.yc.com.gearlibrary.ui.adapter.GearRecyclerViewAdapter
 import kotlinx.android.synthetic.main.item_travel_notes.view.*
 import org.joker.gear.R
 import org.joker.gear.base.glide.AGlide
-import org.joker.gear.pojo.TravelNoteBook
+import org.joker.gear.entity.TravelNoteBook
 
 /**
  * 游记的adapter类

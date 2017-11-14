@@ -43,12 +43,21 @@ interface BaseContract {
     /**
      * MVP Base Presenter
      */
-    interface BasePresenter {
+    interface BasePresenter<out T> {
         /**
          * 加载数据
          */
         fun fetch()
 
+        /**
+         * 刷新数据
+         */
+        fun refreshData()
+
+        /**
+         * 获取数据引用
+         */
+        fun getData() : T
         /**
          * 结束时关闭引用
          */

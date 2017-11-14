@@ -1,4 +1,4 @@
-package org.joker.gear.pojo
+package org.joker.gear.entity
 
 /**
  * 类说明

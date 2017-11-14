@@ -1,4 +1,4 @@
-package org.joker.gear.net.config
+package org.joker.gear.config
 
 import org.joker.gear.BuildConfig
 
