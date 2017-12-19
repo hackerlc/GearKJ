@@ -2,6 +2,7 @@ package org.joker.gear.ui.welcome
 
 import android.content.Intent
 import android.net.Uri
+import android.view.View
 import android.view.WindowManager
 import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -19,7 +20,7 @@ import java.util.concurrent.TimeUnit
  * Email:lc@shandaichaoren.com or 812405389@qq.com
  * @version 2017/11/6
  */
-class WelcomeActivity : BaseActivity(){
+class WelcomeActivity : BaseActivity(R.layout.activity_welcome){
 
     private var videos : MutableList<String> = ArrayList()
     private val RANDOM_BOUND = 2
@@ -37,7 +38,6 @@ class WelcomeActivity : BaseActivity(){
     override fun initUI() {
         window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN)
-        setContentView(R.layout.activity_welcome)
     }
 
     private fun loading(){
@@ -48,6 +48,9 @@ class WelcomeActivity : BaseActivity(){
                     startActivity(Intent(this, TravelNotesActivity::class.java))
                     finish()
                 })
+    }
+
+    override fun onClick(v: View) {
     }
 
     override fun onDestroy() {

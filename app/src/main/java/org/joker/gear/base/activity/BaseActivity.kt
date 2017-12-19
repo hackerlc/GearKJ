@@ -3,6 +3,7 @@ package org.joker.gear.base.activity
 import android.os.Build
 import android.os.Bundle
 import android.view.KeyEvent
+import android.view.View
 import gear.yc.com.gearlibrary.manager.ActivityManager
 
 /**
@@ -13,15 +14,25 @@ import gear.yc.com.gearlibrary.manager.ActivityManager
  * Email:lc@shandaichaoren.com or 812405389@qq.com
  * @version 2017/11/1
  */
-abstract class BaseActivity : RxLifecycleActivity() {
-
+abstract class BaseActivity(viewId: Int) : RxLifecycleActivity(), View.OnClickListener {
+    /**
+     * kotlin写法，提前设置layoutResId
+     */
+    protected val LAYOUT_RES_ID = viewId
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         ActivityManager.getInstance().activities.add(this)
-        initUI()
+        setContentView(LAYOUT_RES_ID)
         attachPresenter()
+        initUI()
         initData()
     }
+
+    /**
+     * 初始化Presenter
+     * @see initUI
+     */
+    abstract protected fun attachPresenter()
 
     /**
      * 主要想法是把初始化view的代码放到一起，所以在此定义这个方法，每个继承类都需要实现此方法
@@ -31,13 +42,7 @@ abstract class BaseActivity : RxLifecycleActivity() {
     abstract protected fun initUI()
 
     /**
-     * 初始化Presenter
-     * @see initUI
-     */
-    abstract protected fun attachPresenter()
-
-    /**
-     * 初始化数据的代码统一存放位置，attachPresenter()之后执行
+     * 初始化数据的代码统一存放位置，initUI()之后执行
      * @see attachPresenter
      */
     abstract protected fun initData()

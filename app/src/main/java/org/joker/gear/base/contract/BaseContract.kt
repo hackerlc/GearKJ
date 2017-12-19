@@ -1,7 +1,6 @@
 package org.joker.gear.base.contract
 
 import com.trello.rxlifecycle2.LifecycleTransformer
-import org.joker.gear.R
 
 /**
  * MVP Base Contract
@@ -24,6 +23,12 @@ interface BaseContract {
          * @param str 信息内容
          */
         fun showToast(str : String)
+
+        /**
+         * 处理错误信息
+         * @param error
+         */
+        fun onError(error : Throwable)
 
         /**
          * 显示加载框

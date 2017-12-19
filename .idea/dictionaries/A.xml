@@ -2,8 +2,10 @@
   <dictionary name="A">
     <words>
       <w>buildscript</w>
+      <w>kapt</w>
       <w>lateinit</w>
       <w>reparenting</w>
+      <w>rxjava</w>
     </words>
   </dictionary>
 </component>

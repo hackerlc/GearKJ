@@ -3,9 +3,10 @@ package org.joker.gear.ui.travelnote.list
 import gear.yc.com.gearlibrary.rxjava.helper.RxSchedulersHelper
 import org.joker.gear.base.contract.presenter.PresenterDataWrapper
 import org.joker.gear.config.AppConfig
-import org.joker.gear.net.api.ApiManager
 import org.joker.gear.entity.Query
 import org.joker.gear.entity.TravelNoteBook
+import org.joker.gear.net.api.ApiManager
+import org.joker.gear.net.helper.SchedulersDataHelper
 import java.util.*
 
 /**
@@ -19,24 +20,32 @@ class TravelNotesPresenter(v: ContractTravelNotes.View) :
         ContractTravelNotes.Presenter<MutableList<TravelNoteBook.Books>>{
 
     var query = Query(AppConfig.INFO_QUERY_ADDRESS,1,10)
-    var any = 1
 
     init {
         mData = ArrayList()
     }
+
+    /**
+     * 这里主要是获取网络数据，其实应该是Model的业务逻辑，暂时先放到了Presenter中
+     * 获取网络数据的方式是由Retrofit+Rxjava的方式，并且自定义了两个处理组件 RxSchedulersHelper 和 SchedulersDataHelper
+     * RxSchedulersHelper 主要是合并了ob.subscribeOn(Schedulers.io()) 和 observeOn(AndroidSchedulers.mainThread()) 操作
+     * SchedulersDataHelper 去处理数据是否获取成功或者服务器返回的非成功标识，成功则返回数据，错误则返回错误信息
+     * Rxjava的生命周期由mView.getLifecycleDestroy()绑定到Activity上
+     */
     override fun fetch() {
         ApiManager.travelNotesApi
                 .getTravelNotesList(query.query,query.getPageQ(),query.getCountQ(),"")
                 .compose(mView.getLifecycleDestroy())
                 .compose(RxSchedulersHelper.io_main())
-                .subscribe({processData(it.data?.getBookses())},
-                        {errorData(AppConfig.INFO_ERROR_NOT_DATA)},
+                .compose(SchedulersDataHelper.handleResult())
+                .subscribe({processData(it.getBookses())},
+                        {errorData(it)},
                         {mView.onDialog(false)})
     }
 
     override fun processData(d: MutableList<TravelNoteBook.Books>?) {
         if (d == null){
-            errorData(AppConfig.INFO_ERROR_NOT_DATA)
+            mView.showToast(AppConfig.INFO_ERROR_NOT_DATA)
         } else {
             if (query.page == 1) {
                 mData.clear()
@@ -47,8 +56,8 @@ class TravelNotesPresenter(v: ContractTravelNotes.View) :
         }
     }
 
-    override fun errorData(error: String) {
-        mView.showToast(error)
+    override fun errorData(error: Throwable) {
+        mView.showToast(error.message.toString())
     }
 
     override fun refreshData() {

@@ -1,0 +1,11 @@
+0dpi ~ 120dpi	ldpi
+120dpi ~ 160dpi	mdpi
+160dpi ~ 240dpi	hdpi
+240dpi ~ 320dpi	xhdpi
+320dpi ~ 480dpi	xxhdpi
+480dpi ~ 640dpi	xxxhdpi
+图片资源应该尽量放在高密度文件夹下，这样可以节省图片的内存开支，
+而UI在设计图片的时候也应该尽量面向高密度屏幕的设备来进行设计。
+就目前来讲，最佳放置图片资源的文件夹就是drawable-xxhdpi。
+市面上480dpi到640dpi的设备较少，如果针对xxxhdpi级别的屏幕密度来设计图片，
+图片在不缩放的情况下本身就已经很大了，基本也起不到节省内存开支的作用了。

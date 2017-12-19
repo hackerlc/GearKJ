@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/GearApiFinder/GearApiFinder.iml" filepath="$PROJECT_DIR$/GearApiFinder/GearApiFinder.iml" />
       <module fileurl="file://$PROJECT_DIR$/GearAppKotlin.iml" filepath="$PROJECT_DIR$/GearAppKotlin.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/gear-api-finder-annotation/gear-api-finder-annotation.iml" filepath="$PROJECT_DIR$/gear-api-finder-annotation/gear-api-finder-annotation.iml" />
       <module fileurl="file://$PROJECT_DIR$/gearlibrary/gearlibrary.iml" filepath="$PROJECT_DIR$/gearlibrary/gearlibrary.iml" />
     </modules>
   </component>

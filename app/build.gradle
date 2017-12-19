@@ -22,6 +22,12 @@ android {
                 cppFlags ""
             }
         }
+        javaCompileOptions {
+            annotationProcessorOptions {
+                //不检查annotationProcessor错误，因为我是用了kapt生成文件而不是使用annotationProcessor
+                includeCompileClasspath false
+            }
+        }
     }
     /*
     buildTypesScriptBlock.
@@ -99,6 +105,9 @@ implementation：对于使用了该命令编译的依赖，对该项目有依赖
  */
 dependencies {
     implementation project(':gearlibrary')
+//    kapt project(':GearApiFinder')
+//    kapt files('F:/object/GearAppKotlin/GearApiFinder/build/libs/GearApiFinder.jar')
+//    implementation project(':GearApiFinder')
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
     implementation 'com.android.support:appcompat-v7:26.1.0'
@@ -109,11 +118,12 @@ dependencies {
     implementation 'com.trello.rxlifecycle2:rxlifecycle:2.2.0'
     implementation 'com.trello.rxlifecycle2:rxlifecycle-android:2.2.0'
     implementation 'com.trello.rxlifecycle2:rxlifecycle-components:2.2.0'
-
     //img
     implementation 'com.github.bumptech.glide:glide:4.3.1'
     kapt 'com.github.bumptech.glide:compiler:4.3.1'
     implementation 'com.github.bumptech.glide:okhttp3-integration:4.3.0'
+
+    implementation 'com.airbnb.android:lottie:2.5.0-beta1'
 
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.1'

@@ -286,8 +286,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".ui.travelnote.list.TravelNotesActivity">
-
         </activity>
+        <activity android:name=".ui.demo.LottieActivity"></activity>
     </application>
 
 </manifest>

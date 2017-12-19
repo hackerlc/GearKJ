@@ -1,5 +1,6 @@
 package org.joker.gear.base.contract.presenter
 
+import com.qianhua.market.net.helper.ThrowableOther
 import org.joker.gear.base.contract.BaseContract
 
 /**
@@ -19,5 +20,12 @@ open class PresenterDataWrapper<R : Any,V : BaseContract.BaseView>(v : V) : Abst
     /**
      * 数据出错
      */
-    protected open fun errorData(error : String) {}
+    protected open fun errorData(error : Throwable) {
+        when (error){
+            is ThrowableOther -> {
+                mView.showToast(error.localizedMessage)
+            }
+            else -> mView.onError(error)
+        }
+    }
 }

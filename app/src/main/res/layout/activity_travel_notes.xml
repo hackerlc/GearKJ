@@ -33,6 +33,5 @@
         android:layout_marginRight="16dp"
         android:src="@drawable/img_search"
         android:translationZ="2dp"
-        app:elevation="10dp"
-        android:onClick="@{onClick}"/>
+        app:elevation="10dp"/>
 </RelativeLayout>

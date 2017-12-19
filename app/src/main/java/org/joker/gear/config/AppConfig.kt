@@ -10,5 +10,6 @@ abstract class AppConfig {
     companion object {
         val INFO_QUERY_ADDRESS = "全国"
         val INFO_ERROR_NOT_DATA = "暂无数据"
+        val INFO_ERROR_NETWORK = "网络异常"
     }
 }

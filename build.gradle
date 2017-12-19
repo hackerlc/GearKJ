@@ -25,6 +25,8 @@ allprojects {
     repositories {
         google()
         jcenter()
+        mavenCentral()
+        maven { url 'https://jitpack.io' }
     }
 }
 // 引用 http://www.jianshu.com/p/c9ec9e2a506e

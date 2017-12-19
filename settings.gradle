@@ -1,1 +1,1 @@
-include ':app', ':gearlibrary'
+include ':app', ':gearlibrary', ':GearApiFinder', ':gear-api-finder-annotation'
