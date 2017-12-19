@@ -5,7 +5,6 @@ import android.content.Intent
 import android.support.v7.widget.LinearLayoutManager
 import android.view.View
 import com.trello.rxlifecycle2.LifecycleTransformer
-import gear.yc.com.gearlibrary.utils.ToastUtil
 import kotlinx.android.synthetic.main.activity_travel_notes.*
 import kotlinx.android.synthetic.main.include_header_back.view.*
 import org.joker.gear.R
@@ -65,7 +64,10 @@ class TravelNotesActivity :
 
     override fun onClick(v: View) {
         when(v.id){
-            R.id.fabSearch -> startActivity(Intent(this,LottieActivity::class.java))
+            R.id.fabSearch -> {
+                startActivity(Intent(this, LottieActivity::class.java))
+                finish()
+            }
         }
     }
 
@@ -75,7 +77,8 @@ class TravelNotesActivity :
     }
 
     override fun showToast(str: String) {
-        ToastUtil.getInstance().makeShortToast(this,str)
+        System.out.println("time:$str")
+//        ToastUtil.getInstance().makeShortToast(this,str)
     }
 
     override fun onError(error: Throwable) {

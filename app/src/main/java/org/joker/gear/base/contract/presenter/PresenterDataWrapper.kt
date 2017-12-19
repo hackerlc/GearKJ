@@ -16,16 +16,17 @@ open class PresenterDataWrapper<R : Any,V : BaseContract.BaseView>(v : V) : Abst
     /**
      * 处理数据
      */
-    protected open fun processData(d : R?) {}
+    protected open fun processData(d : R) {}
     /**
      * 数据出错
      */
     protected open fun errorData(error : Throwable) {
         when (error){
             is ThrowableOther -> {
-                mView.showToast(error.localizedMessage)
+                mView.get()?.showToast(error.localizedMessage)
             }
-            else -> mView.onError(error)
+            else -> mView.get()?.onError(error)
         }
     }
+
 }

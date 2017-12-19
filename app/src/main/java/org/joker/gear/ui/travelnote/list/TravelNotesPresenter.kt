@@ -35,29 +35,32 @@ class TravelNotesPresenter(v: ContractTravelNotes.View) :
     override fun fetch() {
         ApiManager.travelNotesApi
                 .getTravelNotesList(query.query,query.getPageQ(),query.getCountQ(),"")
-                .compose(mView.getLifecycleDestroy())
+                .compose(mView.get()!!.getLifecycleDestroy())
                 .compose(RxSchedulersHelper.io_main())
                 .compose(SchedulersDataHelper.handleResult())
                 .subscribe({processData(it.getBookses())},
                         {errorData(it)},
-                        {mView.onDialog(false)})
+                        {mView.get()?.onDialog(false)})
+
     }
 
-    override fun processData(d: MutableList<TravelNoteBook.Books>?) {
-        if (d == null){
-            mView.showToast(AppConfig.INFO_ERROR_NOT_DATA)
-        } else {
-            if (query.page == 1) {
-                mData.clear()
+    fun processData(d: MutableList<TravelNoteBook.Books>?) {
+        if(mView.get() != null) {
+            if (d == null) {
+                mView.get()!!.showToast(AppConfig.INFO_ERROR_NOT_DATA)
+            } else {
+                if (query.page == 1) {
+                    mData.clear()
+                }
+                mData.addAll(d)
+                query.page = +query.count
+                mView.get()!!.updateUI()
             }
-            mData.addAll(d)
-            query.page=+query.count
-            mView.updateUI()
         }
     }
 
     override fun errorData(error: Throwable) {
-        mView.showToast(error.message.toString())
+        mView.get()?.showToast(error.message.toString())
     }
 
     override fun refreshData() {
@@ -70,5 +73,6 @@ class TravelNotesPresenter(v: ContractTravelNotes.View) :
     }
 
     override fun close() {
+        mView.clear()
     }
 }
