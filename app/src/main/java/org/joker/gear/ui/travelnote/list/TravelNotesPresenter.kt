@@ -6,8 +6,10 @@ import org.joker.gear.config.AppConfig
 import org.joker.gear.entity.Query
 import org.joker.gear.entity.TravelNoteBook
 import org.joker.gear.net.api.ApiManager
+import org.joker.gear.net.helper.RxNetWorkHelper
 import org.joker.gear.net.helper.SchedulersDataHelper
 import java.util.*
+
 
 /**
  * 游记列表逻辑
@@ -35,6 +37,7 @@ class TravelNotesPresenter(v: ContractTravelNotes.View) :
     override fun fetch() {
         ApiManager.travelNotesApi
                 .getTravelNotesList(query.query,query.getPageQ(),query.getCountQ(),"")
+                .compose(RxNetWorkHelper.isNetWork())
                 .compose(mView.get()!!.getLifecycleDestroy())
                 .compose(RxSchedulersHelper.io_main())
                 .compose(SchedulersDataHelper.handleResult())
@@ -43,6 +46,7 @@ class TravelNotesPresenter(v: ContractTravelNotes.View) :
                         {mView.get()?.onDialog(false)})
 
     }
+
 
     fun processData(d: MutableList<TravelNoteBook.Books>?) {
         if(mView.get() != null) {
