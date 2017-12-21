@@ -64,7 +64,8 @@ class TravelNotesPresenter(v: ContractTravelNotes.View) :
     }
 
     override fun errorData(error: Throwable) {
-        mView.get()?.showToast(error.message.toString())
+        super.errorData(error)
+        mView.get()?.onError(error)
     }
 
     override fun refreshData() {

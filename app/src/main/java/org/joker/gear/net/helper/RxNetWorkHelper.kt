@@ -17,8 +17,7 @@ class RxNetWorkHelper {
             return FlowableTransformer {
                 it.doOnSubscribe{
                     if (!isNetworkConnected(GearApp.instance)) {
-//                        return@doOnSubscribe Throwable()
-//                        return@doOnSubscribe FlowableTransformer.error(ThrowableNetWorkError("网络未连接"))
+                        throw ThrowableNetWorkError("没有连接，请检查网络设置")
                     }
                 }
             }

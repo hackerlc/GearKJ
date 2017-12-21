@@ -5,6 +5,7 @@ import android.content.Intent
 import android.support.v7.widget.LinearLayoutManager
 import android.view.View
 import com.trello.rxlifecycle2.LifecycleTransformer
+import gear.yc.com.gearlibrary.utils.ToastUtil
 import kotlinx.android.synthetic.main.activity_travel_notes.*
 import kotlinx.android.synthetic.main.include_header_back.view.*
 import org.joker.gear.R
@@ -78,11 +79,11 @@ class TravelNotesActivity :
 
     override fun showToast(str: String) {
         System.out.println("time:$str")
-//        ToastUtil.getInstance().makeShortToast(this,str)
+        ToastUtil.getInstance().makeShortToast(this,str)
     }
 
     override fun onError(error: Throwable) {
-
+        onDialog(false)
     }
 
     override fun onDialog(show: Boolean) {

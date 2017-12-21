@@ -19,8 +19,10 @@
   <component name="ChangeListManager">
     <list default="true" id="c7599663-6bf4-41f3-8566-4dcd76a03a78" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/org/joker/gear/base/contract/presenter/PresenterDataWrapper.kt" afterPath="$PROJECT_DIR$/app/src/main/java/org/joker/gear/base/contract/presenter/PresenterDataWrapper.kt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/org/joker/gear/net/helper/RxNetWorkHelper.kt" afterPath="$PROJECT_DIR$/app/src/main/java/org/joker/gear/net/helper/RxNetWorkHelper.kt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/org/joker/gear/ui/travelnote/list/TravelNotesActivity.kt" afterPath="$PROJECT_DIR$/app/src/main/java/org/joker/gear/ui/travelnote/list/TravelNotesActivity.kt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/org/joker/gear/ui/travelnote/list/TravelNotesPresenter.kt" afterPath="$PROJECT_DIR$/app/src/main/java/org/joker/gear/ui/travelnote/list/TravelNotesPresenter.kt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gearlibrary/src/main/java/gear/yc/com/gearlibrary/rxjava/helper/RxSchedulersHelper.java" afterPath="$PROJECT_DIR$/gearlibrary/src/main/java/gear/yc/com/gearlibrary/rxjava/helper/RxSchedulersHelper.java" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -116,11 +118,35 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="RxNetWorkHelper.kt" pinned="false" current-in-tab="true">
+      <file leaf-file-name="TravelNotesPresenter.kt" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/org/joker/gear/ui/travelnote/list/TravelNotesPresenter.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="180">
+              <caret line="66" column="30" lean-forward="false" selection-start-line="66" selection-start-column="30" selection-end-line="66" selection-end-column="30" />
+              <folding>
+                <element signature="e#43#454#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PresenterDataWrapper.kt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/org/joker/gear/base/contract/presenter/PresenterDataWrapper.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="291">
+              <caret line="25" column="23" lean-forward="false" selection-start-line="25" selection-start-column="23" selection-end-line="25" selection-end-column="23" />
+              <folding>
+                <element signature="e#48#203#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RxNetWorkHelper.kt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/org/joker/gear/net/helper/RxNetWorkHelper.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="274">
-              <caret line="18" column="64" lean-forward="true" selection-start-line="18" selection-start-column="64" selection-end-line="18" selection-end-column="64" />
+            <state relative-caret-position="240">
+              <caret line="17" column="33" lean-forward="false" selection-start-line="17" selection-start-column="33" selection-end-line="17" selection-end-column="33" />
               <folding>
                 <element signature="e#35#179#0" expanded="true" />
               </folding>
@@ -128,11 +154,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SchedulersDataHelper.kt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/org/joker/gear/net/helper/SchedulersDataHelper.kt">
+      <file leaf-file-name="TravelNotesActivity.kt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/org/joker/gear/ui/travelnote/list/TravelNotesActivity.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="500">
-              <caret line="34" column="58" lean-forward="false" selection-start-line="34" selection-start-column="44" selection-end-line="34" selection-end-column="58" />
+            <state relative-caret-position="380">
+              <caret line="79" column="41" lean-forward="false" selection-start-line="79" selection-start-column="41" selection-end-line="79" selection-end-column="41" />
               <folding />
             </state>
           </provider>
@@ -154,8 +180,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>onSaveInstanceState</find>
-      <find>initializeTheme</find>
       <find>mOverrideConfiguration</find>
       <find>LAYOUT_INFLATER_SERVICE</find>
       <find>Context</find>
@@ -184,6 +208,8 @@
       <find>f</find>
       <find>getLifecycle2</find>
       <find>time</find>
+      <find>showToast</find>
+      <find>onError</find>
     </findStrings>
     <dirStrings>
       <dir>F:\object\GearAppKotlin\app\src\main\java\org\joker\gear</dir>
@@ -3739,15 +3765,15 @@
         <option value="$PROJECT_DIR$/app/src/main/java/org/joker/gear/base/contract/BaseContract.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/org/joker/gear/net/helper/SchedulersDataHelper.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/org/joker/gear/ui/demo/LottieActivity.kt" />
-        <option value="$PROJECT_DIR$/app/src/main/java/org/joker/gear/base/contract/presenter/PresenterDataWrapper.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/org/joker/gear/entity/TravelNoteBook.kt" />
-        <option value="$PROJECT_DIR$/app/src/main/java/org/joker/gear/ui/travelnote/list/TravelNotesActivity.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/org/joker/gear/base/contract/presenter/AbstractPresenter.kt" />
         <option value="$PROJECT_DIR$/gearlibrary/src/main/java/gear/yc/com/gearlibrary/rxjava/helper/RxSchedulersHelper.kt" />
         <option value="$PROJECT_DIR$/gearlibrary/src/main/java/gear/yc/com/gearlibrary/rxjava/helper/RxSchedulersHelper.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/org/joker/gear/ui/travelnote/list/TravelNotesPresenter.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/org/joker/gear/net/helper/ThrowableNetWorkError.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/org/joker/gear/net/helper/RxNetWorkHelper.kt" />
+        <option value="$PROJECT_DIR$/app/src/main/java/org/joker/gear/base/contract/presenter/PresenterDataWrapper.kt" />
+        <option value="$PROJECT_DIR$/app/src/main/java/org/joker/gear/ui/travelnote/list/TravelNotesActivity.kt" />
+        <option value="$PROJECT_DIR$/app/src/main/java/org/joker/gear/ui/travelnote/list/TravelNotesPresenter.kt" />
       </list>
     </option>
   </component>
@@ -4490,7 +4516,7 @@
       <option name="ACTIVITY_CLASS" value="" />
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1513819301897" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1513825720277" />
       </method>
     </configuration>
     <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Instrumented Tests">
@@ -4538,7 +4564,7 @@
       </Profilers>
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1513819301897" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1513825720277" />
       </method>
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -4721,7 +4747,7 @@
       <option name="ACTIVITY_CLASS" value="" />
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1513819301899" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1513825720278" />
       </method>
     </configuration>
     <list size="2">
@@ -4793,7 +4819,7 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32905984" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32905984" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32905984" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Logcat" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.45192307" sideWeight="0.49228224" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Logcat" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.62286323" sideWeight="0.49228224" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32905984" sideWeight="0.5242558" order="12" side_tool="true" content_ui="tabs" />
@@ -4981,6 +5007,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="303">
           <caret line="110" column="25" lean-forward="true" selection-start-line="110" selection-start-column="25" selection-end-line="110" selection-end-column="25" />
+          <folding>
+            <element signature="e#4508#4509#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -5029,26 +5058,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/org/joker/gear/ui/travelnote/list/TravelNotesActivity.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1830">
-          <caret line="71" column="5" lean-forward="false" selection-start-line="71" selection-start-column="5" selection-end-line="71" selection-end-column="5" />
-          <folding>
-            <element signature="e#43#531#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/org/joker/gear/base/contract/presenter/PresenterDataWrapper.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="12" column="85" lean-forward="false" selection-start-line="12" selection-start-column="85" selection-end-line="12" selection-end-column="85" />
-          <folding>
-            <element signature="e#48#148#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/org/joker/gear/base/contract/presenter/AbstractPresenter.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="390">
@@ -5091,14 +5100,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/org/joker/gear/net/helper/ThrowableOther.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="8" column="6" lean-forward="false" selection-start-line="8" selection-start-column="6" selection-end-line="8" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$APPLICATION_HOME_DIR$/.gradle/caches/modules-2/files-2.1/com.trello.rxlifecycle2/rxlifecycle/2.2.0/c6941837c14bd20d402986b0f25fe3cb7ff8983a/rxlifecycle-2.2.0-sources.jar!/com/trello/rxlifecycle2/internal/Preconditions.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
@@ -5111,14 +5112,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="861">
           <caret line="60" column="53" lean-forward="true" selection-start-line="60" selection-start-column="53" selection-end-line="60" selection-end-column="53" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/org/joker/gear/base/contract/BaseContract.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="753">
-          <caret line="44" column="23" lean-forward="false" selection-start-line="44" selection-start-column="23" selection-end-line="44" selection-end-column="23" />
           <folding />
         </state>
       </provider>
@@ -5199,24 +5192,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/org/joker/gear/net/helper/ThrowableNetWorkError.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/org/joker/gear/ui/travelnote/list/TravelNotesPresenter.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="39" column="48" lean-forward="true" selection-start-line="39" selection-start-column="48" selection-end-line="39" selection-end-column="48" />
-          <folding>
-            <element signature="e#43#454#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$APPLICATION_HOME_DIR$/gradle/m2repository/org/jetbrains/kotlin/kotlin-stdlib/1.1.51/kotlin-stdlib-1.1.51-sources.jar!/kotlin/Function.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
@@ -5241,20 +5216,72 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/org/joker/gear/net/helper/ThrowableNetWorkError.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="13" column="4" lean-forward="false" selection-start-line="13" selection-start-column="4" selection-end-line="13" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/org/joker/gear/net/helper/SchedulersDataHelper.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="500">
-          <caret line="34" column="58" lean-forward="false" selection-start-line="34" selection-start-column="44" selection-end-line="34" selection-end-column="58" />
+        <state relative-caret-position="810">
+          <caret line="33" column="45" lean-forward="true" selection-start-line="33" selection-start-column="45" selection-end-line="33" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/org/joker/gear/net/helper/ThrowableOther.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="3" column="25" lean-forward="true" selection-start-line="3" selection-start-column="25" selection-end-line="3" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/org/joker/gear/base/contract/BaseContract.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="303">
+          <caret line="24" column="12" lean-forward="false" selection-start-line="24" selection-start-column="12" selection-end-line="24" selection-end-column="12" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/org/joker/gear/net/helper/RxNetWorkHelper.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="274">
-          <caret line="18" column="64" lean-forward="true" selection-start-line="18" selection-start-column="64" selection-end-line="18" selection-end-column="64" />
+        <state relative-caret-position="240">
+          <caret line="17" column="33" lean-forward="false" selection-start-line="17" selection-start-column="33" selection-end-line="17" selection-end-column="33" />
           <folding>
             <element signature="e#35#179#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/org/joker/gear/ui/travelnote/list/TravelNotesActivity.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="79" column="41" lean-forward="false" selection-start-line="79" selection-start-column="41" selection-end-line="79" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/org/joker/gear/base/contract/presenter/PresenterDataWrapper.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="291">
+          <caret line="25" column="23" lean-forward="false" selection-start-line="25" selection-start-column="23" selection-end-line="25" selection-end-column="23" />
+          <folding>
+            <element signature="e#48#203#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/org/joker/gear/ui/travelnote/list/TravelNotesPresenter.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="66" column="30" lean-forward="false" selection-start-line="66" selection-start-column="30" selection-end-line="66" selection-end-column="30" />
+          <folding>
+            <element signature="e#43#454#0" expanded="true" />
           </folding>
         </state>
       </provider>
