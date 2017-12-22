@@ -125,6 +125,7 @@ dependencies {
 
     implementation 'com.airbnb.android:lottie:2.5.0-beta1'
 
+    implementation 'com.allenliu.versionchecklib:library:1.8.7'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'

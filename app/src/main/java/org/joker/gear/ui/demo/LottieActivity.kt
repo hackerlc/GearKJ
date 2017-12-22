@@ -1,6 +1,10 @@
 package org.joker.gear.ui.demo
 
 import android.view.View
+import com.airbnb.lottie.LottieDrawable
+import com.allenliu.versionchecklib.core.AllenChecker
+import com.allenliu.versionchecklib.core.VersionDialogActivity
+import com.allenliu.versionchecklib.core.VersionParams
 import com.trello.rxlifecycle2.LifecycleTransformer
 import gear.yc.com.gearlibrary.utils.ProgressDialogUtil
 import gear.yc.com.gearlibrary.utils.ToastUtil
@@ -20,7 +24,7 @@ class LottieActivity :
 
     override fun initUI() {
         animation_view.setAnimation("hello-world.json")
-        animation_view.repeatCount = 0
+        animation_view.repeatCount = LottieDrawable.INFINITE
         animation_view.playAnimation()
     }
 
@@ -28,7 +32,20 @@ class LottieActivity :
         mPresenter = LottiePresenter(this)
     }
 
+    lateinit var versionBuilder: VersionParams.Builder
     override fun initData() {
+        //测试更新功能
+        versionBuilder = VersionParams.Builder()
+                .setRequestUrl("http://www.baidu.com")
+                .setCustomDownloadActivityClass(VersionDialogActivity::class.java)
+                .setOnlyDownload(true)
+                .setDownloadUrl("http://test-1251233192.coscd.myqcloud.com/1_1.apk")
+                .setUpdateMsg("123")
+                .setShowNotification(true)
+                .setShowDownloadingDialog(true)
+                .setShowDownLoadFailDialog(false)
+
+        AllenChecker.startVersionCheck(this,versionBuilder.build())
     }
 
     override fun onClick(v: View) {
