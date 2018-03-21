@@ -3,10 +3,13 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/GearApiFinder/GearApiFinder.iml" filepath="$PROJECT_DIR$/GearApiFinder/GearApiFinder.iml" />
-      <module fileurl="file://$PROJECT_DIR$/GearAppKotlin.iml" filepath="$PROJECT_DIR$/GearAppKotlin.iml" />
+      <module fileurl="file://C:\object\GearKJ\GearApiFinder\GearApiFinder.iml" filepath="C:\object\GearKJ\GearApiFinder\GearApiFinder.iml" />
+      <module fileurl="file://$PROJECT_DIR$/GearKJ.iml" filepath="$PROJECT_DIR$/GearKJ.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/gear-api-finder-annotation/gear-api-finder-annotation.iml" filepath="$PROJECT_DIR$/gear-api-finder-annotation/gear-api-finder-annotation.iml" />
+      <module fileurl="file://C:\object\GearKJ\gear-api-finder-annotation\gear-api-finder-annotation.iml" filepath="C:\object\GearKJ\gear-api-finder-annotation\gear-api-finder-annotation.iml" />
       <module fileurl="file://$PROJECT_DIR$/gearlibrary/gearlibrary.iml" filepath="$PROJECT_DIR$/gearlibrary/gearlibrary.iml" />
+      <module fileurl="file://C:\object\GearKJ\gearlibrary\gearlibrary.iml" filepath="C:\object\GearKJ\gearlibrary\gearlibrary.iml" />
     </modules>
   </component>
 </project>
