@@ -4,7 +4,9 @@ import io.reactivex.Flowable
 import org.joker.gear.config.APIConfig
 import org.joker.gear.entity.ResponseJson
 import org.joker.gear.entity.TravelNoteBook
+import retrofit2.http.Body
 import retrofit2.http.GET
+import retrofit2.http.POST
 import retrofit2.http.Query
 
 /**

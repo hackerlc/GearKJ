@@ -9,6 +9,7 @@ import org.joker.gear.net.api.ApiManager
 import org.joker.gear.net.helper.RxNetWorkHelper
 import org.joker.gear.net.helper.SchedulersDataHelper
 import java.util.*
+import kotlin.collections.HashMap
 
 
 /**
